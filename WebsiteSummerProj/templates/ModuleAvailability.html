@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crop Availability</title>
+<link href="./static/CSS/style.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+	<center>
+	<div class="header">
+		<br>
+		<h1>Agricultural Produce Deficit Prediction</h1>
+	</div>
+
+	<h2>Prediction of Crop Shortage from given Crop Availability</h2>
+	<form name="form3"  action="{{ url_for('predict')}}" method="post">
+	<table>
+		<tr><th>Center:</th>
+        	<td><input type="text" name="center"></td></tr>
+		<tr><th>Month:</th>
+        	<td><input type="number" name="mnth"></td></tr>
+		<tr><th>Total Availability:</th>
+        	<td><input type="number" name="avail"></td></tr>				
+	</table>
+	<br><br>
+	<input type="submit" name="Predict">
+	</form>
+	<br><br>
+	{{prediction_text}}
+	</center>
+	<br>
+	<div class="back">
+		<a href="./templates/index.html">Back to Home</a>
+	</div>	
+</body>
+</html>
+
+

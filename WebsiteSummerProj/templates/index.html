@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/graph.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+		<br>
+		<h1>Agricultural Produce Deficit Prediction</h1>
+	</div>
+    
+    <div class="main">
+        <div class="desp">
+            <h3>ABOUT THE PROJECT</h3>
+            <p>In 2019, due to an unexpected turn of events, the vegetable markets of India saw a sudden scarcity of onions. Consumers, who had till then taken the commodity for granted, found themselves shelling out more than twice the usual rate. In fact, the situation became serious to the point where The Government had to temporarily suspend the export of onions.</p> 
+            <p>This incident has occurred multiple times over the past decade and is inevitable. Thus, it would be of help to have a means by which to predict such a scarcity well in advance for the benefit of the nation.</p>
+            <p>Taking inspiration from this past incident, we determined that it would be beneficial if we had the means to predict the possibility of such a shortage occuring well in advance so that The Government and the agricultural sector could together make preparations accordingly and effectively avoid the crisis.</p>
+        </div>
+        
+        <div class="items">
+            <center>
+            <h2>Prediction of Crop Shortage from given Crop Availability</h2>
+        	<form name="form3"  action="{{ url_for('predict')}}" method="post">
+        	<table>
+        		<tr><th>Center:</th>
+                	<td><select id="center" name="center" placeholder="center">
+                        	<option value="">Choose a center</option>
+                        	<option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Amritsar">Amritsar</option>
+                            <option value="Bangaluru">Bangaluru</option>
+                            <option value="Bhopal">Bhopal</option>
+                            <option value="Chennai">Chennai</option>
+                        </select>
+                	</td></tr>
+            	<tr><th>Month:</th>
+                	<td><input type="number" name="mnth" min="1" max="12"></td></tr>
+        		<tr><th>Total Arrival:</th>
+                	<td><input type="number" name="ariv"></td></tr>
+            	<tr><th>Minimum Price:</th>
+                	<td><input type="number" name="minP"></td></tr>
+            	<tr><th>Maximum Price:</th>
+                	<td><input type="number" name="maxP"></td></tr>	
+                <tr style="display:none"><th>Minimum Temperature:</th>
+                	<td><input type="number" name="minT" value="20"></td></tr>
+        		<tr style="display:none"><th>Maximum Temperature</th>
+                	<td><input type="number" name="maxT" value="25"></td></tr>
+            	<tr style="display:none"><th>Humidity:</th>
+                	<td><input type="number" name="hum" value="70"></td></tr>
+            	<tr style="display:none"><th>Rainfall:</th>
+                	<td><input type="number" name="rain" value="5"></td></tr>
+                <tr style="display:none"><th>Cloud:</th>
+                	<td><input type="number" name="cloud" value="35"></td></tr>				
+        	</table>
+        	<br><br>
+        	<input type="submit" name="Predict">
+        	</form>
+        	<br><br>
+        	{{prediction_text}}
+        	
+        	</center>
+        	<br>
+        </div>
+    </div>
+    <br>
+
+    <div class="visual">
+        <climate style="color: #5885AF">            
+            <item>
+                <img src="{{ url_for('static', filename='./Images/temp.png') }}" />
+                <reading>
+                    <p id="maxT">Max: {{max_temp}}</p>
+                    <p id="minT">Min: {{min_temp}}</p>
+                </reading>
+            </item>
+            <item>
+                <img src="{{ url_for('static', filename='./Images/Humidity.png') }}" />
+                <reading>
+                    <p id="Hum">Humidity: {{hum}}</p>
+                </reading>
+            </item>
+            <item>
+                <img src="{{ url_for('static', filename='./Images/Wind.png') }}" />
+                <reading>
+                    <p id="WindS">Speed: {{ws}}</p>
+                    <p id="WindD">Degree: {{wd}}</p>
+                </reading>
+            </item>
+            <item>
+                <img src="{{ url_for('static', filename='./Images/cloud.png') }}" />
+                <reading>
+                    <p id="Cloud">Cloud: {{cld}}</p>
+                </reading>
+            </item>
+        </climate>
+        
+        <div id="lineGraph">
+            <canvas id="price">
+            </canvas>
+        </div>
+        <canvas id="bar">            
+        </canvas>
+        <select name="Year" id="yearOpt">
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>            
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>            
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+        </select>
+    </div>
+    
+    <script src="{{ url_for('static', filename='./populate1.js') }}"></script>
+
+    <br><br>
+    
+
+</body>
+
+</html>
+
+

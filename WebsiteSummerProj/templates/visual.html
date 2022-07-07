@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href='./main.css'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+
+<body>
+    <div class="visual ">
+        <climate>
+            <item>
+                <img src='./Images/temp.jpeg' />
+                <reading>
+                    <i id="maxT">Hello</i>
+                    <i id="minT">Hello</i>
+                </reading>
+            </item>
+            <item>
+                <img src='./Images/Humidity.jpeg' />
+                <reading>
+                    <i id="Hum">Hello</i>
+                </reading>
+            </item>
+            <item>
+                <img src='./Images/Wind.jpeg' />
+                <reading>
+                    <i id="WindS">Hello</i>
+                </reading>
+            </item>
+            <item>
+                <img src='./Images/cloud.jpeg' />
+                <reading>
+                    <i id="Cloud">Hello</i>
+                </reading>
+            </item>
+        </climate>
+        <div id="lineGraph">
+            <canvas id="price">
+            </canvas>
+        </div>
+        <canvas id="bar">            
+        </canvas>
+        <select name="Year" id="yearOpt">
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>            
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>            
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+        </select>
+    </div>
+</body>
+<script src="./populate.js "></script>
+
+</html>

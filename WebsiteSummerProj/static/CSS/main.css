@@ -1,0 +1,89 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+  color: #e5dab6;  
+}
+
+.main {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2%;
+    background-color: white;
+}
+
+
+.desp {    
+    background-color: white;
+    color: #5885AF;
+    padding: 1vw;
+    font-size: 1.5em;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+.desp >h3{
+    align-self: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e5dab6;
+    border-radius: 1em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    color: #e5dab6;
+    padding: 2%;
+    background-color: #41729F;
+    font-size: 1.5em;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+.items {
+    grid-column: 2;
+    display: grid;
+    grid-row-gap: 3%;
+    padding: 5%;
+    background-color: #5885AF;
+}
+
+.header{
+    background-color: #274472;
+    height: 15vh;
+    color: #e5dab6;
+    display: flex;
+    align-self: center;
+    font-size: 3vh;
+    justify-content: center;
+  }
+  
+table{ 
+  border-radius: 1em;
+  border: 2px solid #e5dab6;    
+  padding: 10px; 
+  text-align: left;
+  font-size: 1.2em;
+  background-color: #41729F;
+  font-family: 'Times New Roman', Times, serif;
+} 
+
+tr, th, td{
+  padding: 10px;
+}
+
+input {
+  background-color: gainsboro;
+  color: black;  
+}
+
+
